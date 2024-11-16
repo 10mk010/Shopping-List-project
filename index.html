@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingList.com</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font family source: https://fonts.google.com/selection/embed-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+</head>
+<body onload="readAll()">
+    <h1 class="body-h1">Shopping List</h1> 
+    <p class="body-p">Keep track of your shopping list here!</p>
+    <div class="item-container">
+        <button class="new-btn" role="button">Add New Item</button>
+        <form class="input-form">
+            <input type="text" id="input-item-name" placeholder="Item Name..." required>
+            <input type="text" id="input-item-quan" placeholder="Item Quantity..." required>
+            <input type="number" id="input-item-cost" placeholder="Item Cost..." required>
+            <button onclick="add()" type="button" id="input-addBtn">Add</button>
+        </form>
+        <form class="edit-form">
+            <input type="text" id="edit-item-id" hidden>
+            <input type="text" id="edit-item-name" placeholder="Item Name...">
+            <input type="text" id="edit-item-quan" placeholder="Item Quantity...">
+            <input type="text" id="edit-item-cost" placeholder="Item Cost...">
+            <button onclick="confirmEdit()" type="button" id="edit-addBtn">Edit</button>
+        </form>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Acquired</th>
+                <th><!--Tuščias elementas, kad "border" savybe prisitaikytu--></th>
+            </thead>
+            <tbody class="table-data">
+            </tbody>
+        </table>
+    </div>
+
+<script src="./index.js"></script>
+</body>
+</html>

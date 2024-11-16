@@ -1,0 +1,180 @@
+*,
+::after,
+::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-family: 'Open Sans', sans-serif;
+}
+body{
+  background-color: rgb(49, 50, 61);
+  height: 100vh;
+}
+.body-h1{ 
+  font-size: 80px;
+  text-align: center;
+  max-width: fit-content;
+  margin: auto;
+}
+.body-p{
+  font-size: 45px;
+  text-align: center;
+  max-width: fit-content;
+  margin: auto;
+}
+.item-container{
+  width: 45vw;
+  height: fit-content;
+  min-height: 50vh;
+  background-color: rgb(200, 210, 225); 
+  padding: 10px;
+  margin: 50px auto;
+  border-radius: 15px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+button{
+  transition: 0.5s;
+}
+/* button design source: https://getcssscan.com/css-buttons-examples*/
+.new-btn {
+  align-items: center;
+  margin: 10px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  margin-top: 15px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.new-btn:hover{
+  outline: 0;
+  opacity: 0.75;
+  transition-duration: 0.1s;
+}
+.new-btn:active{
+    opacity: 0.5;
+}
+
+form{
+  display: flex;
+  gap: 20px;
+  margin: 25px 10px 16px 10px;
+}
+form input{
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+}
+form button{
+  border: 0px;
+  border-radius: 8px;
+  padding: 10px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+form button:hover{
+  outline: 0;
+  opacity: 0.75;
+  transition-duration: 0.1s;
+}
+form button:active{
+  opacity: 0.5;
+}
+
+.input-form, .edit-form{
+  display: none;
+}
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+  align-self: center;
+  justify-self: center;
+}
+.dropdown-btn{
+  width: 15px;
+  height: 20px;
+  background-image: radial-gradient(circle, black 25%, transparent 1px);
+  background-size: 100% 33.33%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.dropdown-content{
+  display: none;
+  border-radius: 8px;
+  position: absolute;
+  background-color: rgb(169, 178, 190); 
+  overflow: auto;
+  z-index: 1;
+  min-width: 150px;
+}
+.dropdown-content > div{
+  padding: 5px 15px;
+  display: block;
+}
+.dropdown-content > div:hover{
+  background-color: rgb(135, 143, 153); 
+  cursor: pointer;
+}
+table{
+  width: 100%;  
+  margin-top: 20px;
+  text-align: center;
+}
+thead{
+  margin: 15px;
+  font-size: 25px;
+}
+th{
+  border-bottom:1px solid black;
+}
+td{
+  font-size: 20px;
+  font-weight: 500;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.checkbox-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox{
+  width: 3em;
+  height: 3rem;
+  font-size: 7px;
+  padding: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.delete-btn{
+  background-color: rgb(255, 42, 42);
+}
+
+.show{
+  display: flex;
+}
+.hide{
+  display: none;
+}

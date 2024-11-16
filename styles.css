@@ -100,27 +100,66 @@ form button:active{
     display: none;
 }
 
-
-.items{
-  width: 100%;  
-  margin-top: 20px;
-  text-align: center;
-}
-.item{
-  margin: 5px;
-  background-color: white;
-}
-thead{
-  margin: 10px;
-}
 .input-form, .edit-form{
   display: none;
 }
 
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+.dropdown-btn{
+  width: 15px;
+  height: 20px;
+  background-image: radial-gradient(circle, black 25%, transparent 1px);
+  background-size: 100% 33.33%;
+  cursor: pointer;
+  margin-top: 50%;
+}
+.dropdown-content{
+  display: none;
+  border-radius: 8px;
+  position: absolute;
+  background-color: rgb(169, 178, 190); 
+  overflow: auto;
+  z-index: 1;
+  min-width: 150px;
+}
+.dropdown-content > div{
+  padding: 5px 15px;
+  display: block;
+}
+.dropdown-content > div:hover{
+  background-color: rgb(135, 143, 153); 
+  cursor: pointer;
+}
+table{
+  width: 100%;  
+  margin-top: 20px;
+  text-align: center;
+}
+thead{
+  margin: 15px;
+  font-size: 20px;
+}
+td{
+  font-size: 20px;
+  background-color: white;
+}
+.checkbox-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox{
+  width: 3em;
+  height: 3rem;
+  accent-color: green;
+  font-size: 7px;
+  padding: 5px;
+  border: 2px solid black;
+}
 
-@media (min-width: 768px) {
-  .add-btn{
-    font-size: 24px;
-    min-width: 196px;
-  }
+.show{
+  display: block;
 }

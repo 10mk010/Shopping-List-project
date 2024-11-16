@@ -1,11 +1,10 @@
 'use strict';
-
+console.log(document.querySelector(".item-container"))
 const itemContainer = document.querySelector('.item-container');
 const addBtn = document.querySelector('.add-btn');
 
 let data = [
     {id: 1, name: "Milk", quan: "2l", cost: "2$"},
-    {id: 2, name: "Butter", quan: "200g", cost: "1.99$"}
 ];
 
 function readAll() {
@@ -17,16 +16,35 @@ function readAll() {
     var elements = "";
 
     objectData.map(record => (
-        elements += `<tr>
+        elements += `
+        <tr>
             <td>${record.name}</td>
             <td>${record.quan}</td>
             <td>${record.cost}</td>
             <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <label class="checkbox-container">
+                <input type="checkbox" class="checkbox">
+                <label>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <div class="dropdown-btn"></div>
+                    <div id="optionsDropdown" class="dropdown-content">
+                        <div class="edit-btn">Edit</div>
+                        <div class="delete-btn">Delete</div>
+                    </div>
+                </div>
             </td>
         </tr>`
     ))
-
     tableData.innerHTML = elements;
+    
 }
+ 
+const dropdown = document.querySelector(".dropdown");
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const dropdownContent = document.querySelector(".dropdown-content");
+
+dropdownBtn.addEventListener("click", () => {
+    dropdownContent.classList.toggle("show");
+})

@@ -2,8 +2,8 @@
 
 // Sukuriamas kintamasis kuriame bus talpinama informacija
 let data = [
-    { id: 1, name: "Milk", quan: "2l", cost: "2" },
-    { id: 2, name: "Butter", quan: "200g", cost: "1.99" }
+    { id: 1, name: "Milk", quan: "2l", cost: "2", checkbox: true},
+    { id: 2, name: "Butter", quan: "200g", cost: "1.99", checkbox: true }
 ];
 
 
@@ -24,7 +24,7 @@ function readAll() {
             <td>${record.cost}$</td>
             <td>
                 <label class="checkbox-container">
-                    <input type="checkbox" class="checkbox">
+                    <input type="checkbox" class="checkbox" data-id=${record.id} ${record.checkbox ? "checked" : ""}>
                 </label>
             </td>
             <td>
@@ -39,8 +39,26 @@ function readAll() {
         </tr>`;
     });
     tableData.innerHTML = elements;
-}
 
+    document.querySelectorAll(".checkbox").forEach(checkbox => {
+        checkbox.addEventListener("change", checkboxChange);
+    })
+}
+// Žymiamūjų langelių padeties pertvarkymas į "localStorage"
+function checkboxChange(e){
+    const checkbox = e.target;
+    const id = parseInt(checkbox.dataset.id, 10);
+    const checked = checkbox.checked;
+
+    // data kintamojo atnaujinimas
+    const index =  data.findIndex(record => record.id === id);
+    if(index !== -1){
+        data[index].checkbox = checked;
+    }
+
+    // duomenų išsaugojimas "localStorage"
+    localStorage.setItem("object", JSON.stringify(data))
+}
 
 // Išskleidžiamojo meniu veikimo funkcija
 function dropdown(buttonNumber) {
@@ -75,7 +93,7 @@ function add() {
     const quan = document.getElementById("input-item-quan").value;
     const cost = document.getElementById("input-item-cost").value;
 
-    const newObj = { id: data.length + 1, name, quan, cost };
+    const newObj = { id: data.length + 1, name, quan, cost, checkbox: false };
     data.push(newObj);
 
     newBtn.classList.remove("hide");
@@ -116,7 +134,7 @@ function confirmEdit() {
 
     const index = data.findIndex(rec => rec.id === id);
     if (index !== -1) {
-        data[index] = { id, name, quan, cost };
+        data[index] = { id, name, quan, cost, checkbox };
     }
 
     newBtn.classList.remove("hide");
@@ -124,40 +142,3 @@ function confirmEdit() {
 
     readAll();
 }
-
-
-// Produkto ištrinimo iš sarašo funkcija
-function deleteItem(id) {
-    data = data.filter(record => record.id !== id);
-    readAll();
-}
-
-
-// Žymiamųjų langelių padeties išsaugojimo į "localstorage"
-
-const checkboxes = document.querySelectorAll(".checkbox");
-
-function saveCheckboxStates(){
-    checkboxes.forEach((checkboxes) => {
-        localStorage.setItem(checkbox.id, checkbox.checked);
-    })
-}
-
-// Žymiamųjų langelių padeties išreiškimas
-function loadCheckboxStates() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach((checkbox) => {
-      const savedState = localStorage.getItem(checkbox.id);
-      if (savedState !== null) {
-        checkbox.checked = savedState === 'true';
-      }
-    });
-  }
-  
-  // Attach event listener to the checkboxes to save their states
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', saveCheckboxStates);
-  });
-  
-  // Load checkbox states on page load
-  document.addEventListener('DOMContentLoaded', loadCheckboxStates);
